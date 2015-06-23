@@ -9,6 +9,8 @@ A very small library to help in calculating evaportranspiration using weather un
 
 ## Usage
 
+```
+
   var et = require("evapotranspiration_calculator");
 
   var wundergroundKey = ""; // your wunderground api key
@@ -19,6 +21,8 @@ A very small library to help in calculating evaportranspiration using weather un
   et.calc(wundergroundKey, inputDate, pws, canopyReflectionCoefficient, function(response) {
 		console.log(response);
 	});
+
+```
 
 ## Tests
 
