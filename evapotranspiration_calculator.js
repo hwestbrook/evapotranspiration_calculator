@@ -7,9 +7,9 @@ var async = require("async");
 // 	console.log(response);
 // });
 
-exports.evapotranspiration = function(wundergroundKey, inputDate, pws, canopyReflectionCoefficient, callback) {
+exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoefficient, callback) {
 
-	var day = moment(inputDate).tz("America/Los_Angeles");
+	var day = moment(inputDate);
 
 	// http://api.wunderground.com/api/3de3812920e5bc80/history_20150522/q/pws: KORROSEB11.json
 	var url = "http://api.wunderground.com/api/" + wundergroundKey + "/conditions/history_" + day.format("YYYYMMDD") + "/q/pws:" + pws + ".json";

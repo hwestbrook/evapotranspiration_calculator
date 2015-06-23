@@ -1,6 +1,6 @@
 {
   "name": "evapotranspiration_calculator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "evapotranspiration_calculator.js",
   "dependencies": {
     "async": "^1.2.1",
@@ -10,5 +10,22 @@
     "stats-lite": "^1.0.3"
   },
   "devDependencies": {},
-  "scripts": {}
+  "scripts": {},
+  "description": "Quick way to calculate evapotranspiration using the formulae found here: http://edis.ifas.ufl.edu/pdffiles/ae/ae45900.pdf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hwestbrook/evapotranspiration_calculator.git"
+  },
+  "keywords": [
+    "evapotranspiration",
+    "calculator",
+    "water",
+    "use"
+  ],
+  "author": "Heath Westbrook",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hwestbrook/evapotranspiration_calculator/issues"
+  },
+  "homepage": "https://github.com/hwestbrook/evapotranspiration_calculator"
 }
