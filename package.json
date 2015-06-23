@@ -1,0 +1,14 @@
+{
+  "name": "evapotranspiration_calculator",
+  "version": "0.0.1",
+  "main": "evapotranspiration_calculator.js",
+  "dependencies": {
+    "async": "^1.2.1",
+    "moment": "^2.10.3",
+    "moment-timezone": "^0.4.0",
+    "request": "^2.58.0",
+    "stats-lite": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
