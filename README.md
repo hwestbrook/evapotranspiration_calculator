@@ -1,7 +1,7 @@
 Evapotranspiration Calculator
 =========
 
-A very small library to help in calculating evaportranspiration using weather underground as a source.
+A very small library to help in calculating evaportranspiration using weather underground as a source. Uses formulae found here: http://edis.ifas.ufl.edu/pdffiles/ae/ae45900.pdf
 
 ## Installation
 

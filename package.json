@@ -1,6 +1,6 @@
 {
   "name": "evapotranspiration_calculator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "evapotranspiration_calculator.js",
   "dependencies": {
     "async": "^1.2.1",
