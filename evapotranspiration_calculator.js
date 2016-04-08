@@ -3,10 +3,6 @@ var stats = require("stats-lite");
 var request = require("request");
 var async = require("async");
 
-// exports.evapotranspiration(wundergroundKey, day, pws, canopyReflectionCoefficient, function(response) {
-// 	console.log(response);
-// });
-
 exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoefficient, callback) {
 
 	var day = moment(inputDate);
@@ -37,7 +33,7 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 
 			for (var i = obj.history.observations.length - 1; i >= 0; i--) {
 				var solarRadiationReading = Number(obj.history.observations[i].solarradiation);
-				solarRadiationReadings.push(solarRadiationReading); 
+				solarRadiationReadings.push(solarRadiationReading);
 			}
 
 			// mean solar radiation
@@ -48,7 +44,7 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 
 			// elevation ft
 			var elevationFt = Number(obj.current_observation.display_location.elevation) * 3.28084;
-			
+
 			// max humidity
 			var maxHumidity = Number(obj.history.dailysummary[0].maxhumidity);
 
@@ -62,12 +58,12 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 			var longitudeDegrees = Number(obj.current_observation.display_location.longitude);
 
 			var evapotranspiration = evapotranspiractionCalc(
-				maxTempF, 
-				minTempF, 
-				meanSolarRadiationW, 
-				avgWindSpeedMPH, 
-				elevationFt, 
-				maxHumidity, 
+				maxTempF,
+				minTempF,
+				meanSolarRadiationW,
+				avgWindSpeedMPH,
+				elevationFt,
+				maxHumidity,
 				minHumidity,
 				latitudeDegrees,
 				canopyReflectionCoefficient,
@@ -84,7 +80,7 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 				return callback(result);
 			}
 	});
-}
+};
 
 /*
 
@@ -102,7 +98,7 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 	// kelvin
 	var kelvin = 273.15;
 
-	// solar constant 
+	// solar constant
 	var solarConstant = 0.0820;
 
 	function FtoC (F) {
@@ -147,17 +143,17 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 	function deltaTermFn(saturationVaporPressureCurveSlope, psychrometricConstant, avgWindSpeedMs) {
 		var top = saturationVaporPressureCurveSlope;
 		var bottom = saturationVaporPressureCurveSlope + psychrometricConstant * (1 + 0.34 * avgWindSpeedMs);
-		return top / bottom; 
+		return top / bottom;
 	}
 
 	function psiTermFn(saturationVaporPressureCurveSlope, psychrometricConstant, avgWindSpeedMs) {
 		var top = psychrometricConstant;
 		var bottom = saturationVaporPressureCurveSlope + psychrometricConstant * (1 + 0.34 * avgWindSpeedMs);
-		return top / bottom; 
+		return top / bottom;
 	}
 
 	function temperatureTermFn(meanDailyAirTemperatureC, avgWindSpeedMs) {
-		return ((900) / (meanDailyAirTemperatureC + kelvin) * avgWindSpeedMs); 
+		return ((900) / (meanDailyAirTemperatureC + kelvin) * avgWindSpeedMs);
 	}
 
 	function saturationVaporPressureActualFn(minTempC, maxTempC, minHumidity, maxHumidity) {
@@ -194,7 +190,7 @@ exports.calc = function(wundergroundKey, inputDate, pws, canopyReflectionCoeffic
 		var rel2 = stats.mean([Math.pow((maxTempC + kelvin), 4), Math.pow((minTempC + kelvin), 4)]);
 		var rel3 = (0.34 - 0.14 * Math.sqrt(saturationVaporPressureActual));
 		var rel4 = 1.35 * meanSolarRadiationMJ / clearSkySolarRadiation - 0.35;
-		return rel1 * rel2 * rel3 * rel4; 
+		return rel1 * rel2 * rel3 * rel4;
 	}
 
 
@@ -294,7 +290,7 @@ function evapotranspiractionCalc(maxTempF, minTempF, meanSolarRadiationW, avgWin
 
 */
 
-	var evapoObject = { 
+	var evapoObject = {
 		// meanDailyAirTemperatureC: meanDailyAirTemperatureC,
 		// meanSolarRadiationMJ: meanSolarRadiationMJ,
 		// avgWindSpeedMs: avgWindSpeedMs,
