@@ -3,9 +3,6 @@
   "version": "0.1.2",
   "main": "evapotranspiration_calculator.js",
   "dependencies": {
-    "async": "^1.5.2",
-    "moment-timezone": "^0.5.3",
-    "request": "^2.70.0",
     "stats-lite": "^2.0.1"
   },
   "devDependencies": {},
